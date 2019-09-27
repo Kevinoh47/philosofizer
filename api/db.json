@@ -1,0 +1,16 @@
+{
+  "cards": [
+    {
+      "_id": 1,
+      "type": "philosophy-values",
+      "name": "Virtue and Rewards",
+      "question": "Discuss the old adage 'virtue is its own reward.'"
+    },
+    {
+      "name": "Fortitude: Examples of Fortitude",
+      "question": "What does it mean to possess fortitude? Can you give an example from sports? From stories in movies or books? From your own life?",
+      "type": "philosophy-values",
+      "_id": 2
+    }
+  ]
+}
