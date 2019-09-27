@@ -1,6 +1,6 @@
 <h2> Cards List</h2>
 <ul>
-  <% cards.forEach( item => { %>
-    <li><%- card %></li>
+  <% cards.forEach( card => { %>
+    <li><%= card.name %><%= card.question %></li>
   <% }) %>
 </ul>
