@@ -1,34 +1,40 @@
-'use strict';
-
-const superagent = require('superagent');
+// Third-party Libs
 const express = require('express');
+const methodOverride = require('method-override');
+
+// Esoteric Libs
+const siteRoutes = require('./site-routes.js');
+const categoryRoutes = require('./category-routes.js');
 
 const app = express();
-
-const PORT = process.env.PORT || 8080;
-const API = process.env.API_URL || 'http://localhost:3000';
 
 // ejs template engine
 app.set('view engine', 'ejs');
 
-// set public for /...
-app.use( express.static('./public') );
+// Middleware
 
-app.get('/', homePage);
+// turns form submission into an object
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/cards', cardsPage);
+// Allows overriding HTTP methods with REST methods.
+app.use(methodOverride((request, response) => {
+  if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+    const method = request.body._method;
+    delete request.body._method;
+    return method;
+  }
+}))
 
-function homePage(request, response) {
-  response.render('site', { page: './pages/home', title: 'Our Site: Home' });
-}
+// Static pages
+app.use(express.static('./public'));
 
-function cardsPage(request, response) {
-  superagent.get(`${API}/cards`)
-    .then((data) => {
-      console.log(data.body);
-      response.render('site', { cards: data.body, page: './pages/cards', title: 'Discussion Cards' });
-    })
-    .catch(error => console.error(error));
-}
+// Dynamic Routes
+app.use(siteRoutes);
+app.use(categoryRoutes);
 
-app.listen(PORT, () => console.log(`Server up on ${PORT}`));
+module.exports = {
+  start: (port) => {
+    const PORT = port || process.env.PORT || 8080;
+    app.listen(PORT, () => console.log(`Server up and listening on ${PORT}`));
+  },
+};

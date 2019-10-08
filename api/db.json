@@ -4,13 +4,39 @@
       "_id": 1,
       "type": "philosophy-values",
       "name": "Virtue and Rewards",
-      "question": "Discuss the old adage 'virtue is its own reward.'"
+      "question": "Discuss the old adage 'virtue is its own reward.' Doesn't that statement seem paradoxical in some way? Does this statement hint at some larger difference between acting solely for good, and acting out of self-interest? Does this statement contradict the idea of 'doing good to do well'? And can the two ideas both be true?"
     },
     {
       "name": "Fortitude: Examples of Fortitude",
       "question": "What does it mean to possess fortitude? Can you give an example from sports? From stories in movies or books? From your own life?",
       "type": "philosophy-values",
       "_id": 2
+    },
+    {
+      "name": "Kindness",
+      "question": "Tell me about a time someone was kind to you recently. How did that make you feel? What about when you were kind to someone -- how did that make you feel?",
+      "type": "philosophy-values",
+      "_id": 3
+    },
+    {
+      "name": "Truth and Beauty",
+      "question": "Do the lines from Keats' poem Ode to a Grecian Urn, 'Beauty is truth, truth beauty,—that is all / Ye know on earth, and all ye need to know.' speak to you in any way? In what way is truth beautiful? And is beauty always true? If something is artificial, does that mean it is not beautiful?",
+      "type": "poetry-values",
+      "_id": 4
+    }
+  ],
+  "categories": [
+    {
+      "_id": 5,
+      "name": "Conversation Starter Cards"
+    },
+    {
+      "_id": 6,
+      "name": "Greeting Cards"
+    },
+    {
+      "_id": 7,
+      "name": "Meditation Kits"
     }
   ]
 }

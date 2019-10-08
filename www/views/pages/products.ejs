@@ -1,0 +1,13 @@
+<h2><%= title %></h2>
+<ul>
+  <% items.forEach(item => {
+    <li>
+      <form method="post">
+          <%= item.name %>
+          <input type="hidden" name="_id" value="<%= item._id %>" />
+          <input type="hidden" name="_method" value="delete" />
+          <button>Delete</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
