@@ -1,13 +1,21 @@
 <h2><%= title %></h2>
-<ul>
-  <% items.forEach(item => {
+<!-- <ul>
+  <% products.forEach(product => { %>
     <li>
-      <form method="post">
-          <%= item.name %>
+      <form action="/products" method="post" class="disabled">
+          <input type="text" name="name" value="<%= item.name %>" disabled="true" />
+          <a href="#" class="formToggle">(e)</a>
           <input type="hidden" name="_id" value="<%= item._id %>" />
-          <input type="hidden" name="_method" value="delete" />
-          <button>Delete</button>
+
+          <button name="_method" value="put">Save</button>
+          <button name="_method" value="delete">Delete</button>
       </form>
     </li>
   <% }) %>
 </ul>
+
+<H3>Add New Product</H3>
+<form action="/products" method="post">
+  <input type="text" name="name" />
+  <button>Save</button>
+</form> -->

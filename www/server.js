@@ -12,18 +12,17 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // Middleware
-
 // turns form submission into an object
 app.use(express.urlencoded({ extended: true }));
 
-// Allows overriding HTTP methods with REST methods.
+// To override HTTP GET, POST for REST methods GET, POST, PUT, PATCH, DELETE
 app.use(methodOverride((request, response) => {
   if (request.body && typeof request.body === 'object' && '_method' in request.body) {
-    const method = request.body._method;
+    let method = request.body._method;
     delete request.body._method;
     return method;
   }
-}))
+}));
 
 // Static pages
 app.use(express.static('./public'));
@@ -33,6 +32,7 @@ app.use(siteRoutes);
 app.use(categoryRoutes);
 
 module.exports = {
+  server: app,
   start: (port) => {
     const PORT = port || process.env.PORT || 8080;
     app.listen(PORT, () => console.log(`Server up and listening on ${PORT}`));

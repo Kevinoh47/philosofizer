@@ -21,13 +21,19 @@ function cardsPage(request, response) {
     .catch(error => console.error(error));
 }
 
-function productsPage(request, response) {
+function productsPage(request, response, next) {
+  console.log(`productsPage function request: ${request.originalUrl}`);
+
   superagent.get(`${API}/products`)
     .then((data) => {
-      response.render('site', { page: './pages/products', title: 'Products', items: data.body });
+      console.log(`productsPage function request - promise filled: ${data.body}`);
+      response.render('site', { products: data.body, page: './pages/products', title: 'All Products' });
     })
     .catch((error) => {
-      response.render('site', { page: './pages/error', title: 'Error', error: error });
+      console.log(`productsPage function request error: ${error}`);
+
+      next(error); // todo: with next, we get the full stack trace on the server console...
+      response.render('site', { page: './pages/error', title: 'Error!', error: error });
     });
 }
 
