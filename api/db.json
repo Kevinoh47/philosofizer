@@ -25,18 +25,18 @@
       "_id": 4
     }
   ],
-  "categories": [
+  "products": [
     {
-      "_id": 5,
+      "_id": 1,
       "name": "Conversation Starter Cards"
     },
     {
-      "_id": 6,
+      "_id": 2,
       "name": "Greeting Cards"
     },
     {
-      "_id": 7,
-      "name": "Meditation Kits"
+      "_id": 3,
+      "name": "Meditation Cards"
     }
   ]
 }
